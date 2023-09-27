@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:ap="http://schemas.android.com/apk/res-auto"
+    tools:context=".LineFragment">
+
+    <com.androidplot.xy.XYPlot
+        android:id="@+id/plotLine"
+        style="@style/APDefacto.Light"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        ap:title="Line"
+        ap:marginBottom="-30dp"
+        ap:marginTop="20dp"
+        ap:domainLineColor="@color/ap_black"
+        ap:rangeLineColor="@color/ap_black"
+        ap:lineLabelTextColorTop="@color/ap_black"
+        ap:gridBackgroundColor="@color/ap_white"
+        ap:lineLabels="left|bottom" />
+
+</FrameLayout>
