@@ -2,17 +2,15 @@ package com.example.fragment_ragirzebari_angelsamora
 
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.androidplot.util.PixelUtils
 import com.androidplot.xy.BarFormatter
 import com.androidplot.xy.BarRenderer
 import com.androidplot.xy.BarRenderer.BarOrientation
 import com.androidplot.xy.BoundaryMode
-import com.androidplot.xy.PanZoom
 import com.androidplot.xy.SimpleXYSeries
 import com.androidplot.xy.StepMode
 import com.androidplot.xy.XYGraphWidget
@@ -50,16 +48,6 @@ class BarFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_bar, container, false)
         plot = view.findViewById(R.id.plotBar)
-//        val barRenderer = BarRenderer<BarFormatter>(plot)
-//        plot.addRenderer(barRenderer)
-//        barRenderer.setBarOrientation(BarOrientation.SIDE_BY_SIDE)
-//        Log.d("BarRenderer", "BarRenderer: $barRenderer")
-
-        val barRenderer = BarRenderer<BarFormatter>(plot)
-        barRenderer.barOrientation = BarOrientation.IN_ORDER
-        Log.d("BarOrientation", "BarOrientation: ${barRenderer.barOrientation}")
-        plot.addRenderer(barRenderer)
-//        Log.d("BarRenderer", "BarRenderer: $barRenderer")
         return view
     }
 
@@ -69,48 +57,37 @@ class BarFragment : Fragment() {
         val seriesA: XYSeries = SimpleXYSeries(
             listOf(1, 2, 3, 4),
             listOf(4.3, 2.5, 3.5, 4.5),
-            "line_A"
+            "a"
         )
 
         val seriesB: XYSeries = SimpleXYSeries(
             listOf(1, 2, 3, 4),
             listOf(2.4, 4.4, 1.8, 2.8),
-            "line_B"
+            "b"
         )
 
         val seriesC: XYSeries = SimpleXYSeries(
             listOf(1, 2, 3, 4),
             listOf(2, 2, 3, 5),
-            "line_C"
+            "c"
         )
         val seriesABarFormatter = BarFormatter()
         seriesABarFormatter.fillPaint.color = Color.BLUE
-        seriesABarFormatter.marginLeft = PixelUtils.dpToPix(-7f)
-        seriesABarFormatter.marginRight = PixelUtils.dpToPix(-7f)
 
         val seriesBBarFormatter = BarFormatter()
         seriesBBarFormatter.fillPaint.color = Color.RED
-        seriesBBarFormatter.marginLeft = PixelUtils.dpToPix(-7f)
-        seriesBBarFormatter.marginRight = PixelUtils.dpToPix(-7f)
 
         val seriesCBarFormatter = BarFormatter()
         seriesCBarFormatter.fillPaint.color = Color.GRAY
-        seriesCBarFormatter.marginLeft = PixelUtils.dpToPix(-7f)
-        seriesCBarFormatter.marginRight = PixelUtils.dpToPix(-7f)
 
         plot.addSeries(seriesA, seriesABarFormatter)
         plot.addSeries(seriesB, seriesBBarFormatter)
         plot.addSeries(seriesC, seriesCBarFormatter)
 
-//        val barRendererClass = BarRenderer::class.java
-//        val barRenderer = barRendererClass.getDeclaredConstructor(XYPlot::class.java).newInstance(plot) as BarRenderer
+        val renderer = plot.getRenderer(BarRenderer::class.java)
+        renderer.barOrientation = BarOrientation.SIDE_BY_SIDE
+        renderer.setBarGroupWidth(BarRenderer.BarGroupWidthMode.FIXED_WIDTH, PixelUtils.dpToPix(35f));
 
-//        val barRenderer = BarRenderer<BarFormatter>(plot)
-//        barRenderer.barOrientation = BarOrientation.SIDE_BY_SIDE
-//        Log.d("BarOrientation", "BarOrientation: ${barRenderer.barOrientation}")
-//
-//        plot.addRenderer(barRenderer)
-//        Log.d("BarRenderer", "BarRenderer: $barRenderer")
 
         plot.setRangeBoundaries(0, 6, BoundaryMode.FIXED)
         plot.setDomainBoundaries(0, 4.5, BoundaryMode.FIXED)
@@ -142,8 +119,4 @@ class BarFragment : Fragment() {
                 }
             }
     }
-}
-
-private fun XYPlot.addRenderer(barRenderer: BarRenderer<*>) {
-
 }
