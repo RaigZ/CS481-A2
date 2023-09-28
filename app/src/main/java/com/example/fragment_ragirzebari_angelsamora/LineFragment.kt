@@ -10,8 +10,10 @@ import com.androidplot.xy.BoundaryMode
 import com.androidplot.xy.LineAndPointFormatter
 import com.androidplot.xy.SimpleXYSeries
 import com.androidplot.xy.StepMode
+import com.androidplot.xy.XYGraphWidget
 import com.androidplot.xy.XYPlot
 import com.androidplot.xy.XYSeries
+import java.text.DecimalFormat
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -93,11 +95,13 @@ class LineFragment : Fragment() {
         plot.addSeries(seriesC, seriesCFormatter)
 
         plot.setRangeBoundaries(0, 14, BoundaryMode.FIXED)
-        plot.setDomainBoundaries(0, 4, BoundaryMode.FIXED)
+        plot.setDomainBoundaries(0, 4.5, BoundaryMode.FIXED)
         plot.rangeStepMode = StepMode.INCREMENT_BY_VAL
         plot.rangeStepValue = 2.0
         plot.domainStepMode = StepMode.INCREMENT_BY_VAL
         plot.domainStepValue = 1.0
+        plot.graph.getLineLabelStyle(XYGraphWidget.Edge.LEFT).format = DecimalFormat("#")
+        plot.graph.getLineLabelStyle(XYGraphWidget.Edge.BOTTOM).format = DecimalFormat("#")
     }
 
         companion object {

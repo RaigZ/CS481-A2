@@ -14,7 +14,7 @@
         ap:title="Bar"
         ap:marginBottom="-30dp"
         ap:marginTop="20dp"
-        ap:paddingRight="20dp"
+        ap:paddingRight="30dp"
         ap:lineLabels="left|bottom"
         ap:domainLineColor="@color/ap_black"
         ap:rangeLineColor="@color/white" />
