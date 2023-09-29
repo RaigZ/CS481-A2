@@ -122,5 +122,6 @@ class LineFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
-    }
+        }
+
 }
