@@ -86,8 +86,7 @@ class BarFragment : Fragment() {
 
         val renderer = plot.getRenderer(BarRenderer::class.java)
         renderer.barOrientation = BarOrientation.SIDE_BY_SIDE
-        renderer.setBarGroupWidth(BarRenderer.BarGroupWidthMode.FIXED_WIDTH, PixelUtils.dpToPix(35f));
-
+        renderer.setBarGroupWidth(BarRenderer.BarGroupWidthMode.FIXED_WIDTH, PixelUtils.dpToPix(35f))
 
         plot.setRangeBoundaries(0, 6, BoundaryMode.FIXED)
         plot.setDomainBoundaries(0, 4.5, BoundaryMode.FIXED)

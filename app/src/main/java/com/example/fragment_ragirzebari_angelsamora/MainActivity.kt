@@ -12,7 +12,6 @@ public class MainActivity : AppCompatActivity() {
         val lineFragment = LineFragment()
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.fContainer,lineFragment)
-
             commit()
         }
         findViewById<Button>(R.id.bBar).setOnClickListener {

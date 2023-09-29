@@ -2,10 +2,10 @@ package com.example.fragment_ragirzebari_angelsamora
 
 import android.graphics.Color
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.androidplot.xy.BoundaryMode
 import com.androidplot.xy.LineAndPointFormatter
 import com.androidplot.xy.SimpleXYSeries
@@ -55,19 +55,19 @@ class LineFragment : Fragment() {
         val seriesA: XYSeries = SimpleXYSeries(
             listOf(1, 2, 3, 4),
             listOf(4.3, 2.5, 3.5, 4.5),
-            "line_A"
+            "a"
         )
 
         val seriesB: XYSeries = SimpleXYSeries(
             listOf(1, 2, 3, 4),
             listOf(6.2, 6.5, 5.8, 7.8),
-            "line_B"
+            "b"
         )
 
         val seriesC: XYSeries = SimpleXYSeries(
             listOf(1, 2, 3, 4),
             listOf(8.2, 8.3, 8.1, 12.2),
-            "line_C"
+            "c"
         )
         val seriesAFormatter = LineAndPointFormatter()
         seriesAFormatter.linePaint.color = Color.BLUE
